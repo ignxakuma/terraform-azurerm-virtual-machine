@@ -10,7 +10,7 @@ module "virtual-machine" {
   # Resource Group, location, VNet and Subnet details
   resource_group_name  = "Demo-rg"
   location             = "East us"
-  virtual_network_name = "vnet-demo"
+  virtual_network_name = "new-vnet"
   subnet_name          = "default"
   virtual_machine_name = "node"
 
