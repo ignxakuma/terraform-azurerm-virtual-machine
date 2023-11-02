@@ -24,7 +24,7 @@ module "virtual-machine" {
   os_flavor               = "linux"
   linux_distribution_name = "ubuntu2004"
   virtual_machine_size    = "Standard_B2s"
-  generate_admin_ssh_key  = true
+  generate_admin_ssh_key  = false
   instances_count         = 2
 
   # Proxymity placement group, Availability Set and adding Public IP to VM's are optional.
