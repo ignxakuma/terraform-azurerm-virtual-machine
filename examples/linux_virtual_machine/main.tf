@@ -4,8 +4,8 @@ provider "azurerm" {
 }
 
 module "virtual-machine" {
-  source  = "../../virtual-machine/azurerm"
-  version = "2.3.0"
+  source  = "../../azure_virtual_machine_module"
+ # version = "2.3.0"
 
   # Resource Group, location, VNet and Subnet details
   resource_group_name  = "Demo-rg"
