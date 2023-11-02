@@ -11,12 +11,12 @@ pipeline {
         }
         stage('Terraform-Init') {
             steps {
-                sh 'terraform init'
+                sh 'cd examples/linux_virtual_machine && terraform init'
             }
         }
         stage('Terraform-plan') {
             steps {
-                sh "terraform plan"
+                sh "cd examples/linux_virtual_machine && terraform plan"
             }
         }
         stage('Terraform-apply') {
@@ -27,7 +27,7 @@ pipeline {
                 }
             }
             steps {
-                sh "terraform apply --auto-approve"
+                sh "cd examples/linux_virtual_machine && terraform apply --auto-approve"
             }
         }
         stage("Terraform-destroy")
@@ -39,7 +39,7 @@ pipeline {
                 }
             }
             steps{
-                sh "terraform destroy --auto-approve"
+                sh "cd examples/linux_virtual_machine && terraform destroy --auto-approve"
             }
         }           
     }
