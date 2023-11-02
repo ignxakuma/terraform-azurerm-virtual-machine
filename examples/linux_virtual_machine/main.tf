@@ -13,6 +13,7 @@ module "virtual-machine" {
   virtual_network_name = "new-vnet"
   subnet_name          = "default"
   virtual_machine_name = "node"
+  disable_password_authentication = false
 
   # This module support multiple Pre-Defined Linux and Windows Distributions.
   # Check the README.md file for more pre-defined images for Ubuntu, Centos, RedHat.
