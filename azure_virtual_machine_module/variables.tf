@@ -144,7 +144,7 @@ variable "admin_username" {
 
 variable "admin_password" {
   description = "The Password which should be used for the local-administrator on this Virtual Machine"
-  default     = null
+  default     = "azureadmin"
 }
 
 variable "source_image_id" {
