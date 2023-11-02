@@ -4,7 +4,7 @@ provider "azurerm" {
 }
 
 module "virtual-machine" {
-  source  = "kumarvna/virtual-machine/azurerm"
+  source  = "../../virtual-machine/azurerm"
   version = "2.3.0"
 
   # Resource Group, location, VNet and Subnet details
