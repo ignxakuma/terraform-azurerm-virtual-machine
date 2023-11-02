@@ -27,7 +27,7 @@ pipeline {
                 }
             }
             steps {
-                sh "cd examples/linux_virtual_machine && terraform apply --auto-approve"
+                sh "cd examples/linux_virtual_machine && terraform apply -no-color -auto-approve"
             }
         }
         stage("Terraform-destroy")
@@ -39,7 +39,7 @@ pipeline {
                 }
             }
             steps{
-                sh "cd examples/linux_virtual_machine && terraform destroy --auto-approve"
+                sh "cd examples/linux_virtual_machine && terraform destroy -no-color -auto-approve"
             }
         }           
     }
