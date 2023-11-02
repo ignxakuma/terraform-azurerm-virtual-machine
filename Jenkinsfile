@@ -1,14 +1,12 @@
 pipeline {
     agent any
     parameters {
-        string defaultValue: 'bundle01', description: 'Enter bundle name', name: 'Bundle_name', trim: true 
-        string defaultValue: 'dev', description: 'Enter Env name', name: 'Env_name', trim: true
         choice choices: ['No', 'Yes'], description: 'Do you want to use terraform destroy command?', name: 'Destroy_infra'
     }
     stages {
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/ignxakuma/Terraform_deploy_RHEL.git', credentialsId: 'gitpass', branch: 'master'
+                git url: 'https://github.com/ignxakuma/terraform-azurerm-virtual-machine.git', credentialsId: 'gitpass', branch: 'master'
             }
         }
         stage('Terraform-Init') {
@@ -18,7 +16,7 @@ pipeline {
         }
         stage('Terraform-plan') {
             steps {
-                sh "terraform plan -var 'bundle_name=${params.Bundle_name}' -var 'env_name=${params.Env_name}'"
+                sh "terraform plan"
             }
         }
         stage('Terraform-apply') {
@@ -29,7 +27,7 @@ pipeline {
                 }
             }
             steps {
-                sh "terraform apply -var 'bundle_name=${params.Bundle_name}' -var 'env_name=${params.Env_name}' --auto-approve"
+                sh "terraform apply --auto-approve"
             }
         }
         stage("Terraform-destroy")
@@ -41,7 +39,7 @@ pipeline {
                 }
             }
             steps{
-                sh "terraform destroy -var 'bundle_name=${params.Bundle_name}' -var 'env_name=${params.Env_name}' --auto-approve"
+                sh "terraform destroy --auto-approve"
             }
         }           
     }
