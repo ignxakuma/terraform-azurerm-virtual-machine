@@ -11,12 +11,12 @@ pipeline {
         }
         stage('Terraform-Init') {
             steps {
-                sh 'cd examples/linux_virtual_machine && terraform init'
+                sh 'cd examples/linux_virtual_machine && terraform init -no-color'
             }
         }
         stage('Terraform-plan') {
             steps {
-                sh "cd examples/linux_virtual_machine && terraform plan"
+                sh "cd examples/linux_virtual_machine && terraform plan -no-color"
             }
         }
         stage('Terraform-apply') {
